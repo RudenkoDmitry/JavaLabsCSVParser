@@ -20,6 +20,10 @@ public class CSVParser implements CSVParserAbstract {
     public CSVParser(String path){
         filepath = path;
     }
+
+    public CSVParser(){
+        filepath = "";
+    }
     @Override
      public boolean correctInputFilepath(String path) {
         File file = new File(path);
@@ -44,8 +48,6 @@ public class CSVParser implements CSVParserAbstract {
     public List<Person> fileRead() throws IOException {
         List<Person> personList = new ArrayList<>();
         if (correctInputFilepath(filepath)) {
-
-            FileReader file = new FileReader(filepath);
             char separator = ';';
             CSVReader reader = new CSVReader(new FileReader(filepath), separator);
             String[] nextStr;
